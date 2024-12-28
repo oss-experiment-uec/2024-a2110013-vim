@@ -11928,7 +11928,7 @@ f_taglist(typval_T *argvars, typval_T *rettv)
 }
 
 /*
- * "taglist()" function
+ * "toradians(float)" function
  */
     static void
 f_toradians(typval_T *argvars, typval_T *rettv)
@@ -11936,18 +11936,14 @@ f_toradians(typval_T *argvars, typval_T *rettv)
     char buf1[12];
     char* buf2;
     float fl = argvars[0].vval.v_float;
-
-    /*if (in_vim9script() && check_for_float_or_nr_arg(argvars, 0) == FAIL)
-	return;*/
     
     rettv->v_type = VAR_STRING;
-    //if(get_float_arg(argvers, %f) == OK){
-      fl = fl/180.0;
-      snprintf(buf1, 12, "%f", fl);
-      int size = snprintf(NULL, 0, "pi * %s", buf1) + 1;
-      buf2 = malloc(size);
-      snprintf(buf2, size, "pi * %s", buf1);
-      rettv->vval.v_string = buf2;
+    fl = fl/180.0;
+    snprintf(buf1, 12, "%f", fl);
+    int size = snprintf(NULL, 0, "pi * %s", buf1) + 1;
+    buf2 = malloc(size);
+    snprintf(buf2, size, "pi * %s", buf1);
+    rettv->vval.v_string = buf2;
  
     return;
 }
