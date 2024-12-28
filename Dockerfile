@@ -12,7 +12,7 @@ WORKDIR /artifact
 RUN apt update && apt install -y git build-essential libncurses5-dev libncursesw5-dev universal-ctags
 
 # Gitリポジトリを展開しても良い
-RUN git clone https://github.com/oss-experiment-uec/2024-a2110013-vim.git
+RUN git clone --depth 1 https://github.com/oss-experiment-uec/2024-a2110013-vim.git
 
 #リポジトリに移動
 WORKDIR /artifact/2024-a2110013-vim
